@@ -3,4 +3,4 @@
 from datetime import datetime
 
 current_year = datetime.now().year
-print(f"Hello, RTU Programming Languages in Python Fall {current_year}!")
+print(f"Hello, RTU Programming Languages in Python Fall {2026}!")
