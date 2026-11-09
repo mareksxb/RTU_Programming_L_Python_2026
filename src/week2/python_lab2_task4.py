@@ -59,38 +59,48 @@ QUANTITIES = [2, 5, 1, 3, 4]
 
 def item_totals(prices: list[float], quantities: list[int]) -> list[float]:
     """Return price * quantity for each item, using map() and a lambda."""
-    # TODO: implement with map()
-    raise NotImplementedError("item_totals() is not implemented yet")
+    return list(map(lambda p, q: p * q, prices, quantities))
 
 
 def filter_above(totals: list[float], threshold: float = 30) -> list[float]:
     """Return totals greater than threshold, using filter() and a lambda."""
-    # TODO: implement with filter()
-    raise NotImplementedError("filter_above() is not implemented yet")
+    return list(filter(lambda total: total > threshold, totals))
 
 
 def pair_up(prices: list[float], quantities: list[int]) -> list[tuple]:
     """Return a list of (price, quantity) tuples, using zip()."""
-    # TODO: implement with zip()
-    raise NotImplementedError("pair_up() is not implemented yet")
+    return list(zip(prices, quantities))
 
 
 # ---------- Part B: list comprehensions ----------
 
 def item_totals_comp(prices: list[float], quantities: list[int]) -> list[float]:
     """Same as item_totals(), but with a list comprehension."""
-    # TODO: implement with a list comprehension
-    raise NotImplementedError("item_totals_comp() is not implemented yet")
+    return [p * q for p, q in zip(prices, quantities)]
 
 
 def filter_above_comp(totals: list[float], threshold: float = 30) -> list[float]:
     """Same as filter_above(), but with a list comprehension."""
-    # TODO: implement with a list comprehension
-    raise NotImplementedError("filter_above_comp() is not implemented yet")
+    return [total for total in totals if total > threshold]
 
 
 if __name__ == "__main__":
-    # Keep all input() and print() calls inside this block, otherwise the
-    # autograder cannot import your file.
-    # TODO: call every function with PRICES and QUANTITIES and print results
-    pass
+    # Keep all input() and print() calls inside this block,
+    # otherwise the autograder cannot import your file.
+
+    totals = item_totals(PRICES, QUANTITIES)
+    print("Totals:", totals)
+
+    filtered = filter_above(totals)
+    print("Totals > 30:", filtered)
+
+    pairs = pair_up(PRICES, QUANTITIES)
+    print("Price-quantity pairs:", pairs)
+
+    totals_comp = item_totals_comp(PRICES, QUANTITIES)
+    print("Totals (comprehension):", totals_comp)
+
+    filtered_comp = filter_above_comp(totals_comp)
+    print("Totals > 30 (comprehension):", filtered_comp)
+
+    print("I find list comprehensions easier to read.")
