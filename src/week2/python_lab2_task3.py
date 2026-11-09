@@ -29,13 +29,18 @@ Examples (these are also used to check your work):
 {'+': 0, '-': 0, '*': 0, '/': 0, '(': 0, ')': 0}
 """
 
-OPERATORS = ['+', '-', '*', '/', '(', ')']
+OPERATORS = ["+", "-", "*", "/", "(", ")"]
 
 
 def count_operators(expression: str) -> dict[str, int]:
     """Return a dict with the count of each operator in expression."""
     # TODO: initialize the dictionary with all operators set to 0
     # TODO: loop over each character and update the counts
+    c = {op: 0 for op in OPERATORS}
+    for char in expression:
+        if char in c:
+            c[char] += 1
+    return c
     raise NotImplementedError("count_operators() is not implemented yet")
 
 
@@ -43,4 +48,7 @@ if __name__ == "__main__":
     # Keep all input() and print() calls inside this block, otherwise the
     # autograder cannot import your file.
     # TODO: get an expression from the user, count operators, print result
+    expression = input("Enter an arithmetic expression: ")
+    result = count_operators(expression)
+    print(f"Operator counts: {result}")
     pass
